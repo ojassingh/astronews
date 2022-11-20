@@ -14,8 +14,23 @@ const FeatArticles: FC<any>= (props) => {
         summary = article.summary.substr(0,120) + '...'
      }
 
+     const variants = {
+        rest: {
+            x: 0,
+            transition: {
+              duration: 4,
+              type: "tween",
+              ease: "easeIn"
+            }
+          },
+        hover: {
+            scale: 0.97,
+            transition: { type: "spring", duration: 0.8, ease: "linear" }
+        }
+    }
+
     //  console.log(article)
-    return(<motion.div key={article.id} className="bg-dark w-full h-52 rounded-3xl text-white flex place-content-center">
+    return(<motion.a target="blank" href={article.url} variants={variants} whileHover="hover" initial="rest" key={article.id} className="bg-dark w-full h-52 rounded-3xl text-white flex place-content-center">
     <div className="w-full relative overflow-hidden rounded-3xl shadow-lg cursor-pointer">
 	<img className="opacity-25 object-cover w-full h-full" src={article.imageUrl} alt="company logos"/>
 
@@ -25,7 +40,7 @@ const FeatArticles: FC<any>= (props) => {
 	</div>
   </div>
 
-</motion.div>)
+</motion.a>)
 }
 
 export default FeatArticles;
