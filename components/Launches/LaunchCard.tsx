@@ -1,0 +1,66 @@
+import { FC, useEffect, useState} from "react";
+import { motion } from "framer-motion";
+import ArrowUpRight from "../icons/ArrowUpRight";
+
+const LaunchCard: FC<any>= (props) => {
+    let launch = props.launch;
+    // console.log(launchDate)
+
+    const [tminus, setCount] = useState({
+      secs: 0,
+      mins: 0,
+      hours: 0,
+      days: 0
+    });
+
+
+    const countdown: any = () => {
+       const now = new Date();
+       const date = new Date(launch.net)
+
+      let diffMs = date.getTime() - now.getTime()
+      var days = Math.floor(diffMs / 86400000); // days
+      var hours = Math.floor((diffMs % 86400000) / 3600000); // hours
+      var mins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+      var secs = Math.round((((diffMs % 86400000) % 3600000) / 60000)); // secs
+      setCount({secs, mins, hours, days})
+    }
+
+    setTimeout(()=>{
+      countdown()
+      console.log("Changed")
+    }, 1000)
+
+
+    const variants = {
+        rest: {
+            x: 0,
+            transition: {
+              duration: 4,
+              type: "tween",
+              ease: "easeIn"
+            }
+          },
+        hover: {
+            scale: 0.97,
+            transition: { type: "spring", duration: 0.8, ease: "linear" }
+        }
+    }
+    
+    return(<motion.a key={launch.id} variants={variants} whileHover="hover" initial="rest" href={"/launches/" + launch.id} target="_blank" className="bg-gradient-to-r from-blue-400 to-pink-800 w-full rounded-3xl text-white flex">
+    <img className="h-full ml-0 w-2/6 object-cover rounded-l-3xl mx-auto" src={launch.image}/>
+   <motion.div className="grid place-content-center w-4/6 text-white p-10 gap-4">
+        <h1 className="text-center font-bold text-4xl">{launch.name}</h1>
+        <h1 className="text-center font-bold text-xl">{launch.launch_service_provider.name}</h1>
+        <h1 className="text-center font-bold text-xl">{launch.pad.name} | {launch.pad.location.name}</h1>
+        <h1 className="text-center font-bold text-2xl">{tminus.days} | {tminus.hours} | {tminus.mins} | {tminus.secs}</h1>
+        <h1 className="text-center font-bold text-2xl">{launch.net} <span className="rounded-xl bg-white p-2 ml-2 text-primary">{launch.status.abbrev}</span></h1>
+   </motion.div>
+   <div className="flex">
+    <div className="relative"><div className="p-6 bottom-0 left-0"><ArrowUpRight/></div></div>
+    <div className="relative"><div className="absolute p-6 bottom-0 right-0"><h1>Launch</h1></div></div>
+   </div>
+</motion.a>)
+}
+
+export default LaunchCard;

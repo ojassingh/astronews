@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
 
@@ -7,37 +8,49 @@ const Navbar = () => {
         {
             id: 1,
             name: "Home",
-            url: "home",
+            url: "",
         },
         {
             id: 2,
-            name: "Launches",
-            url: "home",
+            name: "About",
+            url: "about",
         },
         {
             id: 3,
+            name: "Launches",
+            url: "launches",
+        },
+        {
+            id: 4,
             name: "News",
-            url: "home",
+            url: "news",
         },
-        {
-            id: 4,
-            name: "History",
-            url: "home",
-        },
-        {
-            id: 4,
-            name: "Sign in",
-            url: "home",
-        },
+        // {
+        //     id: 4,
+        //     name: "Sign in",
+        //     url: "home",
+        // },
     ]
 
     return(<Fragment>
-        <div id="content" className="pt-10 px-16">
-            <ul className="lg:flex lg:gap-4">
+        <div id="content" className="pt-10 px-16 flex">
+            
+        <div className="flex-2">
+            <button className="rounded-full bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
+            <h1 className="block text-black bg-clip-text text-transparent px-4 py-2 font-semibold rounded-full">AstroNews Live</h1>
+            </button>
+        </div>
+
+            <ul className="flex gap-4 flex-1 my-auto">
                 {navList.map((element)=>{
-                    return(<li className="" key={element.id}>
-                        <Link href={element.url}>{element.name}</Link>
-                    </li>)
+                    return(<motion.li whileHover={{scale:1.07}} className="p-2 text-white" key={element.id}>
+                        <div className="flex-2">
+                        <button className="rounded-full hover:bg-gradient-to-r hover:from-rose-400 hover:via-fuchsia-500 hover:to-indigo-500 outline outline-1">
+                        <h1 className="block text-white hover:bg-clip-text hover:text-black px-4 py-2 font-semibold rounded-full"><Link href={element.url}>{element.name}</Link></h1>
+                        </button>
+                        </div>
+                        
+                    </motion.li>)
                 })}
             </ul>
         </div>
