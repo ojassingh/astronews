@@ -7,11 +7,11 @@ const FeatArticles: FC<any>= (props) => {
      let title = article.title;
 
      if(title.length > 55){
-        title = title.substr(0,42) + '...'
+        title = title.substr(0,55) + '...'
      }
 
      if(article.summary.length > 70){
-        summary = article.summary.substr(0,120) + '...'
+        summary = article.summary.substr(0,120) + '... read more'
      }
 
      const variants = {

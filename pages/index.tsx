@@ -10,7 +10,6 @@ const Home: NextPage = ({launches, news}: any) => {
   const launchList = JSON.parse(launches).results
   const newsList = JSON.parse(news);
 
-  // console.log(newsList);
 
   return (
     <div className="bg-dark">
