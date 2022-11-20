@@ -1,11 +1,14 @@
 import { Fragment } from "react";
 import { FC } from "react";
-import Featured from "./Featured";
 import { motion, Variants} from "framer-motion";
+import dynamic from "next/dynamic";
+
+const Featured = dynamic(() => import('./Featured'))
 
 const Intro: FC<any>= (props: any) => {
 
     const launches = props.launches;
+    const news = props.news;
     // console.log(launches)
 
     return(<Fragment>
@@ -23,7 +26,7 @@ const Intro: FC<any>= (props: any) => {
             <h3 className="text-white px-2 font-bold">Ad Astra Per Aspera.</h3>
             
         </div>
-        <Featured launches={launches} />
+        <Featured launches={launches} news={news}/>
     </Fragment>)
 }
 

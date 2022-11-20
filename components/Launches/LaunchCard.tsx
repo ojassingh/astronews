@@ -4,8 +4,14 @@ import ArrowUpRight from "../icons/ArrowUpRight";
 
 const LaunchCard: FC<any>= (props) => {
     let launch = props.launch;
-    let ISODATE = new Date(launch.net).toLocaleString()
-    // console.log(launchDate)
+    
+    // console.log(launch)
+
+    // function getDate(){
+    //   const date = new Date(launch.net);
+    //   return date.toLocaleString()
+    // }
+
 
     const [tminus, setCount] = useState({
       secs: 0,
@@ -28,8 +34,7 @@ const LaunchCard: FC<any>= (props) => {
     }
 
     setTimeout(()=>{
-      countdown()
-      console.log("Changed")
+      countdown();
     }, 1000)
 
 
@@ -55,8 +60,8 @@ const LaunchCard: FC<any>= (props) => {
         <h1 className="text-center font-bold text-2xl">{launch.launch_service_provider.name}</h1>
         <h1 className="text-center font-medium text-xl">{launch.pad.name} | {launch.pad.location.name}</h1>
         <div id="t-minus-section" className="text-center flex flex-wrap gap-3">
-          <h1 className="font-medium text-2xl">T-MINUS: </h1>
-          <div className="flex my-auto gap-2 text-lg">
+          <h1 className="font-medium text-2xl text-center">T-MINUS: </h1>
+          <div className="flex my-auto gap-2 text-lg align-center">
             <div>
               <h1>{tminus.days}</h1>
               <h1>Days</h1>
@@ -78,7 +83,9 @@ const LaunchCard: FC<any>= (props) => {
             </div>
           </div>
         </div>
-        <h1 className="text-center font-medium text-xl">{ISODATE} <span className="rounded-xl bg-white p-2 ml-2 text-primary">{launch.status.abbrev}</span></h1>
+        <h1 className="w-full text-center mx-auto rounded-xl bg-white p-2 text-primary">Status: {launch.status.name}</h1>
+        <h1 className="text-center font-medium text-xl">{new Date(launch.net).toUTCString()}</h1>
+         
    </motion.div>
    <div className="flex">
     <div className="relative"><div className="p-6 bottom-0 left-0"><ArrowUpRight/></div></div>
