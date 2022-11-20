@@ -4,6 +4,7 @@ import ArrowUpRight from "../icons/ArrowUpRight";
 
 const LaunchCard: FC<any>= (props) => {
     let launch = props.launch;
+    let ISODATE = new Date(launch.net).toLocaleString()
     // console.log(launchDate)
 
     const [tminus, setCount] = useState({
@@ -19,10 +20,10 @@ const LaunchCard: FC<any>= (props) => {
        const date = new Date(launch.net)
 
       let diffMs = date.getTime() - now.getTime()
-      var days = Math.floor(diffMs / 86400000); // days
-      var hours = Math.floor((diffMs % 86400000) / 3600000); // hours
-      var mins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-      var secs = Math.round((((diffMs % 86400000) % 3600000) / 60000)); // secs
+      var days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      var secs = Math.floor((diffMs % (1000 * 60)) / 1000);
       setCount({secs, mins, hours, days})
     }
 
@@ -49,12 +50,35 @@ const LaunchCard: FC<any>= (props) => {
     
     return(<motion.a key={launch.id} variants={variants} whileHover="hover" initial="rest" href={"/launches/" + launch.id} target="_blank" className="bg-gradient-to-r from-blue-400 to-pink-800 w-full rounded-3xl text-white flex">
     <img className="h-full ml-0 w-2/6 object-cover rounded-l-3xl mx-auto" src={launch.image}/>
-   <motion.div className="grid place-content-center w-4/6 text-white p-10 gap-4">
+   <motion.div className="grid place-content-center w-4/6 text-white p-10 gap-6">
         <h1 className="text-center font-bold text-4xl">{launch.name}</h1>
-        <h1 className="text-center font-bold text-xl">{launch.launch_service_provider.name}</h1>
-        <h1 className="text-center font-bold text-xl">{launch.pad.name} | {launch.pad.location.name}</h1>
-        <h1 className="text-center font-bold text-2xl">{tminus.days} | {tminus.hours} | {tminus.mins} | {tminus.secs}</h1>
-        <h1 className="text-center font-bold text-2xl">{launch.net} <span className="rounded-xl bg-white p-2 ml-2 text-primary">{launch.status.abbrev}</span></h1>
+        <h1 className="text-center font-bold text-2xl">{launch.launch_service_provider.name}</h1>
+        <h1 className="text-center font-medium text-xl">{launch.pad.name} | {launch.pad.location.name}</h1>
+        <div id="t-minus-section" className="text-center flex flex-wrap gap-3">
+          <h1 className="font-medium text-2xl">T-MINUS: </h1>
+          <div className="flex my-auto gap-2 text-lg">
+            <div>
+              <h1>{tminus.days}</h1>
+              <h1>Days</h1>
+            </div>
+            <span>|</span>
+            <div>
+              <h1>{tminus.hours}</h1>
+              <h1>Hours</h1>
+            </div>
+            <span>|</span>
+            <div>
+              <h1>{tminus.mins}</h1>
+              <h1>Mins</h1>
+            </div>
+            <span>|</span>
+            <div>
+              <h1>{tminus.secs}</h1>
+              <h1>Secs</h1>
+            </div>
+          </div>
+        </div>
+        <h1 className="text-center font-medium text-xl">{ISODATE} <span className="rounded-xl bg-white p-2 ml-2 text-primary">{launch.status.abbrev}</span></h1>
    </motion.div>
    <div className="flex">
     <div className="relative"><div className="p-6 bottom-0 left-0"><ArrowUpRight/></div></div>
