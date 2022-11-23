@@ -8,22 +8,17 @@ const Navbar = () => {
         {
             id: 1,
             name: "Home",
-            url: "",
+            url: "/",
         },
         {
             id: 2,
-            name: "About",
-            url: "about",
+            name: "Launches",
+            url: "/launches",
         },
         {
             id: 3,
-            name: "Launches",
-            url: "launches",
-        },
-        {
-            id: 4,
             name: "News",
-            url: "news",
+            url: "/news",
         },
         // {
         //     id: 4,
@@ -33,7 +28,7 @@ const Navbar = () => {
     ]
 
     return(<Fragment>
-        <div id="content" className="pt-10 px-16 flex">
+        <div id="navbar" className="pt-10 px-16 flex">
             
         <div className="flex-2">
             <button className="rounded-full bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
@@ -41,7 +36,7 @@ const Navbar = () => {
             </button>
         </div>
 
-            <ul className="flex gap-4 flex-1 my-auto">
+            <ul className="flex gap-4 my-auto px-10">
                 {navList.map((element)=>{
                     return(<motion.li whileHover={{scale:1.07}} className="p-2 text-white" key={element.id}>
                         <div className="flex-2">

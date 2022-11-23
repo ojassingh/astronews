@@ -2,7 +2,7 @@ import { FC, useEffect, useState} from "react";
 import { motion } from "framer-motion";
 import ArrowUpRight from "../icons/ArrowUpRight";
 
-const LaunchCard: FC<any>= (props) => {
+const LaunchCardMain: FC<any>= (props) => {
     let launch = props.launch;
     
     // console.log(launch)
@@ -53,12 +53,14 @@ const LaunchCard: FC<any>= (props) => {
         }
     }
     
-    return(<motion.a key={launch.id} variants={variants} whileHover="hover" initial="rest" href={"/launches/" + launch.id} target="_blank" className="bg-gradient-to-r from-blue-400 to-pink-800 w-full rounded-3xl text-white flex">
-    <img className="lg:block h-full ml-0 w-1/3 object-cover rounded-l-3xl mx-auto" src={launch.image}/>
+    return(<motion.div key={launch.id} variants={variants} whileHover="hover" initial="rest" className="bg-gradient-to-r from-blue-400 to-pink-800 w-full rounded-3xl text-white flex flex-wrap">
+    <div className="px-10 py-10 w-1/3 mx-auto my-auto h-full">
+      <img className="lg:block h-full rounded-3xl object-cover mx-auto my-auto" src={launch.image}/>
+    </div>
    <motion.div className="grid place-content-center w-2/3 text-white p-10 gap-6">
-        <h1 className="text-center font-bold text-4xl">{launch.name}</h1>
-        <h1 className="text-center font-bold text-2xl">{launch.launch_service_provider.name}</h1>
-        <h1 className="text-center font-medium text-xl">{launch.pad.name} | {launch.pad.location.name}</h1>
+        {/* <h1 className="text-center font-bold text-4xl">{launch.name}</h1> */}
+        {/* <h1 className="text-center font-bold text-2xl">Launch Provider: {launch.launch_service_provider.name}</h1> */}
+        <h1 className="text-center font-bold text-xl">Location: {launch.pad.name} | {launch.pad.location.name}</h1>
         <div id="t-minus-section" className="text-center flex flex-wrap gap-3 place-content-center">
           <h1 className="font-medium text-2xl text-center">T-MINUS: </h1>
           <div className="flex my-auto gap-2 text-lg align-center">
@@ -83,15 +85,13 @@ const LaunchCard: FC<any>= (props) => {
             </div>
           </div>
         </div>
-        <h1 className="w-full text-center mx-auto rounded-xl bg-white p-2 text-primary">Status: {launch.status.name}</h1>
-        <h1 className="text-center font-medium text-xl">{new Date(launch.net).toUTCString()}</h1>
-         
+       <div className="flex flex-wrap gap-4 place-content-center">
+       <h1 className="w-full text-center mx-auto rounded-xl bg-white p-2 text-primary">Status: {launch.status.name}</h1>
+        <h1 className="w-full text-center mx-auto rounded-xl bg-white px-4 py-3 text-primary">Status: {launch.status.description}</h1>
+        <h1 className="text-center font-medium text-xl">Date: {new Date(launch.net).toUTCString()}</h1>
+       </div>
    </motion.div>
-   <div className="flex">
-    <div className="relative"><div className="p-6 bottom-0 left-0"><ArrowUpRight/></div></div>
-    <div className="relative"><div className="absolute p-6 bottom-0 right-0"><h1>Launch</h1></div></div>
-   </div>
-</motion.a>)
+</motion.div>)
 }
 
-export default LaunchCard;
+export default LaunchCardMain;
