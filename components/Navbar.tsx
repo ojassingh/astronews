@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { motion } from "framer-motion";
+import PopoverNavi from "./PopoverNavi";
 
 const Navbar = () => {
 
@@ -36,18 +37,22 @@ const Navbar = () => {
             </button>
         </div>
 
-            <ul className="flex gap-4 my-auto px-10">
-                {navList.map((element)=>{
-                    return(<motion.li whileHover={{scale:1.07}} className="p-2 text-white" key={element.id}>
-                        <div className="flex-2">
-                        <button className="rounded-full hover:bg-gradient-to-r hover:from-rose-400 hover:via-fuchsia-500 hover:to-indigo-500 outline outline-1">
-                        <h1 className="block text-white hover:bg-clip-text hover:text-black px-4 py-2 font-semibold rounded-full"><Link href={element.url}>{element.name}</Link></h1>
-                        </button>
-                        </div>
-                        
-                    </motion.li>)
-                })}
-            </ul>
+            <div className="xs:hidden sm:hidden md:block lg:block">
+                <ul className="flex gap-4 my-auto px-10 ">
+                    {navList.map((element)=>{
+                        return(<motion.li whileHover={{scale:1.07}} className="p-2 text-white" key={element.id}>
+                            <div className="flex-2">
+                            <button className="rounded-full hover:bg-gradient-to-r hover:from-rose-400 hover:via-fuchsia-500 hover:to-indigo-500 outline outline-1">
+                            <h1 className="block text-white hover:bg-clip-text hover:text-black px-4 py-2 font-semibold rounded-full"><Link href={element.url}>{element.name}</Link></h1>
+                            </button>
+                            </div>
+                            
+                        </motion.li>)
+                    })}
+                </ul>
+            </div>
+
+            <div className="lg:flex-1 my-auto lg:hidden md:hidden xs:block sm:block"><PopoverNavi/></div>
         </div>
     </Fragment>)
 }
