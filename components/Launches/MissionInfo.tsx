@@ -21,7 +21,7 @@ const MissionInfo: FC<any>= ({launch, provider}) => {
 
     // console.log(provider);
     
-    return(<motion.div key={launch.id} variants={variants} whileHover="hover" initial="rest" className="bg-gradient-to-r from-blue-400 to-pink-800 w-full rounded-3xl text-white flex flex-wrap">
+    return(<motion.div key={launch.id} variants={variants} whileHover="hover" initial="rest" className="bg-gradient-to-r from-blue-500 to-blue-800 w-full rounded-3xl text-white flex flex-wrap">
     <div className="p-10 w-1/3 mx-auto my-auto lg:block md:block sm:hidden xs:hidden"><img className="bg-white p-10  rounded-2xl object-cover mx-auto" src={provider.logo_url}/></div>
    <motion.div className="grid place-content-center lg:w-2/3 md:w-full sm:w-full xs:w-full text-white p-10 gap-6">
         {/* <h1 className="text-center font-bold text-4xl">{launch.name}</h1> */}

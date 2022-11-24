@@ -53,7 +53,7 @@ const LaunchCardMain: FC<any>= (props) => {
         }
     }
     
-    return(<motion.div key={launch.id} variants={variants} whileHover="hover" initial="rest" className="bg-gradient-to-r from-blue-400 to-pink-800 w-full rounded-3xl text-white flex flex-wrap">
+    return(<motion.div key={launch.id} variants={variants} whileHover="hover" initial="rest" className="bg-gradient-to-r from-blue-500 to-blue-800 w-full rounded-3xl text-white flex flex-wrap">
     <div className="px-10 py-10 w-1/3 mx-auto my-auto h-full lg:block md:hidden sm:hdiden xs:hidden">
       <img className="lg:block h-full rounded-3xl object-cover mx-auto my-auto" src={launch.image}/>
     </div>
