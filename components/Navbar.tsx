@@ -33,7 +33,7 @@ const Navbar = () => {
             
         <div className="flex-2">
             <button className="rounded-full bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
-            <h1 className="block text-black bg-clip-text text-transparent px-4 py-2 font-semibold rounded-full">AstroNews Live</h1>
+            <a href="/" className="block text-black bg-clip-text text-transparent px-4 py-2 font-semibold rounded-full">AstroNews Live</a>
             </button>
         </div>
 

@@ -7,7 +7,7 @@ const solutions = [
   {
     name: 'Home',
     description: 'Measure actions your users take',
-    href: '/home',
+    href: '/',
     icon: IconOne,
   },
   {
