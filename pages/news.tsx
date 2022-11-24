@@ -18,9 +18,9 @@ const news: NextPage = ({launches, news, moreNews}: any) => {
   return (
     <div className="bg-dark">
     <Navbar/>
-    <h1 className="text-8xl py-10 px-16 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600">Latest news</h1>
+    <h1 className="lg:text-8xl md:text-8xl sm:text-7xl xs:text-6xl py-10 lg:px-16 md:px-16 sm:px-12 xs:px-10 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600">Latest news</h1>
 
-    <h1 className="text-6xl px-16 font-bold text-white">Featured articles</h1>
+    <h1 className="lg:text-6xl md:text-6xl sm:text-5xl xs:text-4xl lg:px-16 md:px-16 sm:px-12 xs:px-10 font-bold text-white">Featured articles</h1>
 
       
     <div id="featured-launch-section" className="mt-6 flex flex-wrap px-10 gap-4 place-content-center ">
@@ -31,8 +31,8 @@ const news: NextPage = ({launches, news, moreNews}: any) => {
 
 
 
-    <h1 className="text-6xl py-10 px-16 font-extrabold text-white">More articles from other sources</h1>
-    <p className="text-white font-medium text-xl px-16">Do note that these are manually queried, and some data might not be relevant.</p>
+    <h1 className="lg:text-6xl md:text-6xl sm:text-5xl xs:text-4xl lg:px-16 md:px-16 sm:px-12 xs:px-10 py-10 font-extrabold text-white">More articles from other sources</h1>
+    <p className="text-white font-medium text-xl lg:px-16 md:px-16 sm:px-12 xs:px-10 py-10">Do note that these are manually queried, and some data might not be relevant.</p>
 
     <div id="featured-launch-section" className="mx-auto px-10 mt-6 flex flex-wrap gap-4 place-content-center ">
         {other.map((article:any, i: number)=>{

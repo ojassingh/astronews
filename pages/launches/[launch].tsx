@@ -15,9 +15,9 @@ const launch: NextPage = ({launch, provider, launcher}: any) => {
       
       return(<div>
         <Navbar/>
-        <h1 className="py-4 px-16 text-white text-5xl font-bold">{mylaunch.name}</h1>
+        <h1 className="py-4 px-16 text-white lg:text-5xl md:text-5xl sm:text-4xl xs:text-3xl font-bold">{mylaunch.name}</h1>
  
-        <div className="flex flex-wrap gap-4 py-4 px-16">
+        <div className="flex flex-wrap gap-4 py-4 lg:px-16 md:px-16 sm:px-12 xs:px-10">
             <LaunchCardMain key={launch.id} launch={mylaunch} />
             <MissionInfo key={launch.id} provider={myprovider} launch={mylaunch} />
             <LaunchInfo key={launch.id} launcher={mylauncher} launch={mylaunch}/>

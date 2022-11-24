@@ -53,7 +53,7 @@ const LaunchCard: FC<any>= (props) => {
         }
     }
     
-    return(<motion.a key={launch.id} variants={variants} whileHover="hover" initial="rest" href={"/launches/" + launch.id} target="_blank" className="bg-gradient-to-r from-blue-400 to-pink-800 rounded-3xl text-white flex">
+    return(<motion.a key={launch.id} variants={variants} whileHover="hover" initial="rest" href={"/launches/" + launch.id} target="_blank" className="bg-gradient-to-r from-blue-400 to-pink-800 rounded-3xl text-white flex place-content-center w-full">
     <img className="lg:block md:hidden sm:hidden xs:hidden h-full ml-0 w-1/3 object-cover rounded-l-3xl mx-auto" src={launch.image}/>
    <motion.div className="grid place-content-center xs:w-full lg:w-2/3 md:w-full sm:w-full text-white p-10 gap-6">
         <h1 className="text-center font-bold lg:text-4xl md:text-4xl sm:text-4xl xs:text-3xl">{launch.name}</h1>

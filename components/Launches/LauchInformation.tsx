@@ -5,7 +5,7 @@ import ArrowUpRight from "../icons/ArrowUpRight";
 const LaunchInfo: FC<any>= ({launch, launcher}) => {
     
 
-    console.log(launcher)
+    // console.log(launcher)
 
     const variants = {
         rest: {

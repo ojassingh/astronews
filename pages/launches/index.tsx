@@ -10,10 +10,10 @@ const launches: NextPage = ({launchList}: any) => {
    
     return(<div>
         <Navbar/>
-        <h1 className="text-8xl py-10 px-16 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600">All upcoming launches</h1>
-        <div id="content" className="px-16 py-4 flex flex-wrap gap-4">
-          {launches.map((launch: any)=>{
-            return(<LaunchCard launch={launch} />)
+        <h1 className="lg:text-8xl md:text-8xl sm:text-7xl xs:text-6xl py-10 lg:px-16 md:px-16 sm:px-14 xs:px-12 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-600">All upcoming launches</h1>
+        <div id="content" className="lg:px-16 md:px-16 xs:px-10 sm:px-14 py-4 flex flex-wrap gap-4">
+          {launches.map((launch: any, i:number)=>{
+            return(<LaunchCard key={i} launch={launch} />)
           })}
         </div>
         <Footer/>

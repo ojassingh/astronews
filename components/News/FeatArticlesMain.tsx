@@ -25,13 +25,13 @@ const FeatArticlesMain: FC<any>= (props) => {
     }
 
     //  console.log(article)
-    return(<motion.a target="blank" href={article.url} variants={variants} whileHover="hover" initial="rest" key={article.id} className="bg-dark w-5/12 rounded-3xl text-white flex place-content-center">
-    <div className="w-full relative overflow-hidden rounded-3xl shadow-lg cursor-pointer">
-	<img className="opacity-25 object-cover w-full h-full" src={article.imageUrl} alt="company logos"/>
+    return(<motion.a target="blank" href={article.url} variants={variants} whileHover="hover" initial="rest" key={article.id} className="bg-dark lg:w-5/12 md:5/12 sm:w-full xs:w-full rounded-3xl h-full text-white flex place-content-center">
+    <div className="w-full relative overflow-hidden rounded-3xl shadow-lg cursor-pointer h-full">
+	  <img className="opacity-25 object-cover w-full h-full" src={article.imageUrl} alt="company logos"/>
 
 	<div className="absolute top-0 left-0 px-6 py-4">
-	  <h4 className="mb-3 text-3xl font-semibold tracking-tight text-white">{title}</h4>
-	  <p className="leading-normal text-lg text-white">{(summary)}</p>
+	  <h4 className="mb-3 lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl font-semibold tracking-tight text-white">{title}</h4>
+	  <p className="lg:block md:block sm:hidden xs:hidden leading-normal  lg:text-lg md:text-lg sm:text-md lg:text-sm text-white">{(summary)}</p>
 	</div>
   </div>
 
