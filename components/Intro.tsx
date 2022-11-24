@@ -20,7 +20,7 @@ const Intro: FC<any>= (props: any) => {
                 <div className="lg:block md:hidden sm:hidden xs:hidden my-auto"><Blink/></div>
 
             </div>
-            <h3 className="lg:px-20 md:px-17 sm:px-17 xs:px-11 text-white font-bold">Ad Astra Per Aspera.</h3>
+            <h3 className="lg:px-20 md:px-17 sm:px-17 xs:px-11 text-white font-bold">Per Aspera Ad Astra</h3>
             
         </div>
         <Featured launches={launches} news={news}/>

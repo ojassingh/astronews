@@ -13,7 +13,7 @@ const Footer: FC = () => {
                 <button className="rounded-full bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
                 <h1 className="block text-black bg-clip-text text-transparent px-4 py-2 font-semibold rounded-full">AstroNews Live</h1>
                 </button>
-                <p className="text-gray-500 text-xs px-4 py-2">Ad Astra Per Aspera</p>
+                <p className="text-gray-500 text-xs px-4 py-2">Per Aspera Ad Astra</p>
             </div>
 
             <div className="my-auto lg:block md:block xs:hidden sm:hidden">

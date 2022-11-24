@@ -29,7 +29,7 @@ const Navbar = () => {
     ]
 
     return(<Fragment>
-        <div id="navbar" className="pt-10 px-16 flex">
+        <div id="navbar" className="pt-10 lg:px-16 md:px-16 sm:px-12 xs:px-10 flex">
             
         <div className="flex-2">
             <button className="rounded-full bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
