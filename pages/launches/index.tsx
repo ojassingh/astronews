@@ -24,7 +24,7 @@ export default launches;
 
 export async function getServerSideProps(context: any) {
 
-    var launches = await fetch("https://lldev.thespacedevs.com/2.2.0/launch/upcoming/").then(res => res.json()).then((data)=>{
+    var launches = await fetch("https://ll.thespacedevs.com/2.2.0/launch/upcoming/").then(res => res.json()).then((data)=>{
       return data
     })
     var launchList = JSON.stringify(launches.results);

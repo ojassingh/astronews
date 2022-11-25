@@ -49,7 +49,7 @@ export default news;
 
 export async function getServerSideProps(context: any) {
 
-  var launchList = await fetch("https://lldev.thespacedevs.com/2.2.0/launch/upcoming/").then(res => res.json()).then((data)=>{
+  var launchList = await fetch("https://ll.thespacedevs.com/2.2.0/launch/upcoming/").then(res => res.json()).then((data)=>{
     return data
   })
   var launches = JSON.stringify(launchList);
