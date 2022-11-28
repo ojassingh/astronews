@@ -60,7 +60,7 @@ export async function getServerSideProps(context: any) {
 
   var news = JSON.stringify(newsList)
 
-  var otherNews = await fetch("https://newsapi.org/v2/everything?apiKey=4864f447c8ea42c3ac9760781facbde1&q=spacex OR  nasa OR NOT apple OR rocketlaunch&sortBy=popularity")
+  var otherNews = await fetch("https://newsapi.org/v2/everything?apiKey=4864f447c8ea42c3ac9760781facbde1&q=spacex OR  nasa OR rocketlaunch&sortBy=popularity")
   .then(res => res.json())
   .then((data)=>{
     return data
